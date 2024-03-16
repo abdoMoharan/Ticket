@@ -13,7 +13,7 @@
                             <span class="ms-2 me-4">Albums</span>
                         </div>
                         <div>
-                            <a href="{{route('admin.albums.index')}}" class=" text-decoration-none"><h4 class="mb-0">{{ @$albums_count }}</h4></a>
+                            <a href="" class=" text-decoration-none"><h4 class="mb-0">count</h4></a>
                         </div>
                     </div>
                 </div>

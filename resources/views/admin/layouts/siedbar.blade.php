@@ -11,16 +11,17 @@
             </a>
         </li>
         <li>
-            <a href="{{route('admin.albums.index')}}" class="{{ Route::is('admin.albums.index.*') ? 'active ' : '' }}">
+            <a href="{{route('admin.tickets.index')}}" class="{{ Route::is('admin.tickets.*') ? 'active ' : '' }}">
                 <i class='bx bx-box'></i>
-                <span class="links_name">Albums</span>
+                <span class="links_name">Tickets</span>
             </a>
         </li>
-
-
-
-
-
+        <li>
+            <a href="{{route('admin.reply.index')}}" class="{{ Route::is('admin.reply.*') ? 'active ' : '' }}">
+                <i class='bx bx-box'></i>
+                <span class="links_name">Reply</span>
+            </a>
+        </li>
         <li class="log_out">
             <form method="POST" action="{{ route('logout') }}">
                 @csrf
