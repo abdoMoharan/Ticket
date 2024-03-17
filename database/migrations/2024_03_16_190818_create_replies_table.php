@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('ticket_id')->constrained()->cascadeOnDelete();
             $table->foreignId('user_id')->nullable()->constrained()->cascadeOnDelete();
             $table->text('message')->nullable();
-            $table->date('reply_data')->nullable();
+            $table->date('reply_date')->nullable();
             $table->timestamps();
         });
     }

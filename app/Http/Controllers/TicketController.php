@@ -74,4 +74,16 @@ class TicketController extends Controller
         session()->flash('success', 'Ticket Deleted Successfully');
         return redirect()->route('admin.tickets.index');
     }
+
+    public function changeStatus(Request $request){
+        $data = $request->validate([
+            'ticket_id' => 'required',
+            'sub_type' => 'required'
+        ]);
+
+        $ticket = Ticket::findOrFail($data['ticket_id']);
+        $ticket->update(['sub_type' => $data['sub_type']]);
+        session()->flash('success', 'Ticket Status Changed Successfully');
+        return redirect()->route('admin.tickets.index');
+    }
 }

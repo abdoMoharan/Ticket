@@ -35,13 +35,17 @@
                             <td>{{ $item->subject }}</td>
                             <td>{{ $item->type }}</td>
                             <td>
-                                @if ($item->sub_type == 'Open')
-                                    <span class="badge bg-success">Open</span>
-                                @elseif ($item->sub_type == 'Closed')
-                                    <span class="badge bg-danger">Closed</span>
-                                @elseif ($item->sub_type == 'Waiting')
-                                    <span class="badge bg-warning">Waiting</span>
-                                @endif
+                                <a data-bs-toggle="modal" data-bs-target="#sub_type{{ $item->id }}"
+                                    class="btn btn-outline btn-sm">
+                                    @if ($item->sub_type == 'Open')
+                                        <span class="badge bg-success">Open</span>
+                                    @elseif ($item->sub_type == 'Closed')
+                                        <span class="badge bg-danger">Closed</span>
+                                    @elseif ($item->sub_type == 'Waiting')
+                                        <span class="badge bg-warning">Waiting</span>
+                                    @endif
+                                </a>
+
                             </td>
                             <td>{{ $item->start_date->format('Y-m-d') }}</td>
                             <td>{{ $item->closed_date->format('Y-m-d') }}</td>
@@ -53,6 +57,8 @@
                             </td>
                         </tr>
                         @include('admin.pages.tickets.delete')
+                        @include('admin.pages.tickets._model_sub_type')
+
                     @empty
                         <tr>
                             <td colspan="7" class="text-center text-danger">No data found</td>

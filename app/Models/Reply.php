@@ -14,10 +14,12 @@ class Reply extends Model
         'message',
         'user_id',
         'ticket_id',
-        'reply_data'
+        'reply_date'
     ];
 
-
+    protected $casts = [
+        'reply_date' => 'datetime',
+    ];
     public function ticket(){
         return $this->belongsTo(Ticket::class);
     }

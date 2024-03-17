@@ -27,9 +27,12 @@ Route::get('/', function () {
 Route::group(['middleware' => ['auth', 'verified'],'prefix' => 'admin', 'as' => 'admin.'],function(){
     Route::get('/dashboard',[DashboardController::class,'index'])->name('dashboard');
     Route::resource('/tickets',TicketController::class);
-
+    Route::post('tickets/change_status',[TicketController::class,'changeStatus'])->name('tickets.change_status');
     Route::controller(ReplyController::class)->group(function(){
         Route::get('/reply','index')->name('reply.index');
+        Route::get('/reply/create','create')->name('reply.create');
+        Route::post('/reply','store')->name('reply.store');
+        Route::delete('/reply/{reply}','destroy')->name('reply.destroy');
     });
 
 });
